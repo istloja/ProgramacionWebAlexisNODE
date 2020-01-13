@@ -9,6 +9,7 @@ app.get("/", (req, res) => {
     console.log(req);
     res.json({ mensaje: "Hola mundo" });
 });
+require("./Rutas/rutas.js")(app);
 app.listen(1111, () => { console.log("servidor Iniciado") });     //puerto=1111
 
 app.get("/hola/es",(req, res)=> {
