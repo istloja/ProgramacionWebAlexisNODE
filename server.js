@@ -1,21 +1,27 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const body_parser = require('body-parser');
+
 const app = express();
-app.use(bodyParser.json());//tipo de archivo 
-app.use(bodyParser.urlencoded({ extended: true }));// tipo de metodo en postman
+app.use(body_parser.json());
+app.use(body_parser.urlencoded({extended:true}));
 
 
-app.get("/", (req, res) => {
-    console.log(req);
-    res.json({ mensaje: "Hola mundo" });
-});
-require("./Rutas/rutas.js")(app);
-app.listen(1111, () => { console.log("servidor Iniciado") });     //puerto=1111
+app.get('/',(req,res)=>{
+    res.json({messager:'Hola mundo'})
+})
 
-app.get("/hola/es",(req, res)=> {
-    res.json({ mensaje: "Hola mundo" });
-    });
-    app.get("/hola/en",(req, res)=> {
-        res.json({ mensaje: "Wellow World" });
-        });
+app.get('/hola/es',(req,res)=>{
+    res.json({messager:'Hola mundo'})
+})
+app.get('/hola/en',(req,res)=>{
+    res.json({messager:'Hello Word'})
+})
+
+require('./routes')(app);
+
+
+app.listen(3000,()=>{
+    console.log('Iniciado')
+})
+
 
