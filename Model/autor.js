@@ -27,7 +27,7 @@ autor.crearNuevoAutor =(nuevoAutor,result)=>{
     });
 }
 autor.eliminarAutor =(borrarAutor,result)=>{
-    connect.query("DELETE FROM AUTOR WHERE ?",borrarAutor,(error,res)=>{
+    connect.query("DELETE FROM autor where ?",borrarAutor,(error,res)=>{
         if(error){
             console.log(error,"error al eliminar Autor");
             result(null,error)
